@@ -63,6 +63,10 @@ export default function Header() {
         setMenuOpen(!menuOpen)
     }
 
+    const closeMenu = () => {
+        setMenuOpen(false)
+    }
+
     return (
         <>
             <aside className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
@@ -92,7 +96,7 @@ export default function Header() {
                         <div className={styles.menuLine} />
                         <div className={styles.menuLine} />
                     </div>
-                    <div className={styles.logo}>
+                    <div className={styles.logo} onClick={closeMenu}>
                         <Link href='/'>
                             <span>Jo Yuri</span>
                         </Link>
