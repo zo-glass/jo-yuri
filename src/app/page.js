@@ -1,12 +1,17 @@
 import styles from "./page.module.css"
 
-import ComingSoon from "@/components/pages/ComingSoon/ComingSoon"
+import { fetchApi } from "@/common/apiService"
 
-export default function Home() {
+import Carousel from "@/components/pages/main/Carousel/Carousel"
+
+export default async function Home() {
+	const [carouselData] = await Promise.all([fetchApi("carousel")])
+
+	carouselData?.items?.sort((a, b) => b.createdAt - a.createdAt)
+
 	return (
 		<>
-			<ComingSoon />
+			<Carousel data={carouselData?.items || []} />
 		</>
-
 	)
 }
