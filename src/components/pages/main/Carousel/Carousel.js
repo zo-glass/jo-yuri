@@ -4,12 +4,23 @@ import styles from "./Carousel.module.css"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import 'swiper/css'
+import { Autoplay } from 'swiper/modules'
 
 
 export default function Carousel({ data }) {
     return (
         <>
-            <Swiper className={styles.swiper}>
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={0}
+                loop={true} 
+                modules={[ Autoplay ]}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
+                className={styles.swiper}
+            >
                 {data?.map((i, index) => {
                     return (
                         <SwiperSlide key={index}>
