@@ -43,6 +43,10 @@ ol, ul {
 	margin: 0;
 }
 
+p {
+  text-align: justify;
+}
+
 strong {
   font-weight: bold;
 }
