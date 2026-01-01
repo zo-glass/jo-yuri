@@ -1,10 +1,12 @@
 'use client'
 
 import styles from './Carousel.module.css'
+import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
+import { Autoplay, Navigation } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/navigation'
 
 export default function Carousel({ items }) {
     return (
@@ -13,10 +15,14 @@ export default function Carousel({ items }) {
                 slidesPerView={1}
                 spaceBetween={0}
                 loop={true} 
-                modules={[ Autoplay ]}
+                modules={[ Autoplay, Navigation ]}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,
+                }}  
+                navigation={{
+                    prevEl: `.${styles.prev}`,
+                    nextEl: `.${styles.next}`,
                 }}
                 className={styles.swiper}
             >
@@ -29,6 +35,8 @@ export default function Carousel({ items }) {
                         </SwiperSlide>
                     )
                 })}
+                <IoIosArrowDropleftCircle className={`${styles.navButton} ${styles.prev}`} />
+                <IoIosArrowDroprightCircle className={`${styles.navButton} ${styles.next}`} />
             </Swiper>
         </>
     )

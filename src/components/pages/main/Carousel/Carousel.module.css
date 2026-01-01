@@ -9,6 +9,27 @@
 	object-fit: cover;
 }
 
+.navButton {
+	z-index: 2;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 16px 8px;
+	width: 30px;
+	height: 30px;
+	color: white;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.prev {
+	left: 0px;
+}
+
+.next {
+	right: 0px;
+}
+
 @media screen and (max-width: 935px) {
 	.swiper {
 		width: 100vw;
