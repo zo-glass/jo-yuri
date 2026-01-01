@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	cursor: pointer;
+    width: 214px;
+    height: 71.34px;
+    border: 1px solid rgb(38, 38, 38);
+    border-radius: 6px;
+}
+
+.container:hover {
+    transform: scale(1.01);
+}
+
+@media screen and (max-width: 935px) {
+    .container {
+        width: 144px;
+        height: 48px;
+    }
+}
