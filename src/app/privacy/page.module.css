@@ -1,0 +1,9 @@
+.container {
+    --heading-scale: 2/3;
+}
+
+.container ul {
+    list-style: circle;
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
