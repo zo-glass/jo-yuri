@@ -30,6 +30,16 @@
 	right: 0px;
 }
 
+.swiper :global(.swiper-pagination-bullet) {
+	background-color: white;
+	opacity: 0.4;
+}
+
+.swiper :global(.swiper-pagination-bullet-active) {
+	background-color: white;
+	opacity: 1;
+}
+
 @media screen and (max-width: 935px) {
 	.swiper {
 		width: 100vw;
