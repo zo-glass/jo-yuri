@@ -13,7 +13,7 @@ const pages = [
         url: '/privacy',
     },
     {
-        title: 'Terms & Conditions',
+        title: 'Terms of Use',
         url: '/terms',
     },
 ]
