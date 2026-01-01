@@ -1,12 +1,14 @@
 const API_URL = process.env.API_URL
 const API_KEY = process.env.API_KEY
 
-export async function getData(path, queryParams = {}) {
-	if (!API_URL) { throw new Error('API_URL undefined')}
-	
+export async function getData(path, config = {}) {
+	if (!API_URL) { throw new Error('API_URL undefined') }
+
 	const url = new URL(`${API_URL}/${path}`)
 
-	Object.entries(queryParams).forEach(([key, value]) => {
+	const { params = {}, revalidate, tags, ...restOptions } = config
+
+	Object.entries(params).forEach(([key, value]) => {
 		if (value != null) {
 			url.searchParams.append(key, String(value))
 		}
@@ -14,7 +16,15 @@ export async function getData(path, queryParams = {}) {
 
 	url.searchParams.append('key', API_KEY)
 
-	const res = await fetch(url)
+	const fetchOptions = {
+		...restOptions,
+		next: {
+			...(revalidate !== undefined && { revalidate }),
+			...(tags && { tags })
+		}
+	}
+
+	const res = await fetch(url, fetchOptions)
 
 	if (!res.ok) {
 		console.error(`API request failed: ${res.status} ${res.statusText}`)

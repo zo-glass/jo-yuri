@@ -13,7 +13,11 @@ export default async function Discography({ searchParams }) {
     const { page = 1 } = await searchParams
     const offset = (page - 1) * ITENS_PER_PAGE
 
-    const res = await getData('discography', { limit: ITENS_PER_PAGE, offset: offset })
+    const res = await getData('discography', {
+        params: { limit: ITENS_PER_PAGE, offset: offset },
+        revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+        tags: ['discography']
+    })
 
     const discographyItems = res?.items || []
     discographyItems?.items?.sort((a, b) => b.createdAt - a.createdAt)

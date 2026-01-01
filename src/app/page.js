@@ -7,8 +7,15 @@ import MainDiscography from '@/components/pages/main/MainDiscography/MainDiscogr
 
 export default async function Home() {
 	const [carouselItems, discographyItems] = await Promise.all([
-		getData('carousel'),
-		getData('discography', {limit: 4})
+		getData('carousel', {
+			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+			tags: ['carousel']
+		}),
+		getData('discography', { 
+			params: { limit: 4 },
+			revalidate: Number(process.env.REVALIDATE_TIME_LONG),
+			tags: ['discography']
+		})
 	])
 
 	carouselItems?.items?.sort((a, b) => b.createdAt - a.createdAt)
