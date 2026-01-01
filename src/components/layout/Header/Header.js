@@ -1,4 +1,7 @@
+"use client"
+
 import styles from './Header.module.css'
+import { useState } from 'react'
 import Link from 'next/link'
 
 import { FaInstagram, FaTwitter, FaFacebook, FaYoutube, FaTiktok } from 'react-icons/fa'
@@ -54,10 +57,21 @@ const sns = [
 ]
 
 export default function Header() {
+    const [menuOpen, setMenuOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen)
+    }
+
     return (
         <>
             <header className={styles.header}>
                 <section className={styles.container}>
+                    <div className={`${styles.menuIcon} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
+                        <div className={styles.menuLine}></div>
+                        <div className={styles.menuLine}></div>
+                        <div className={styles.menuLine}></div>
+                    </div>
                     <div className={styles.logo}>
                         <Link href='/'>
                             <span>Jo Yuri</span>

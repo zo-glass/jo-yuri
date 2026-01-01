@@ -41,3 +41,44 @@
 .navItem:hover {
     background-color: var(--color-light-orange);
 }
+
+.menuIcon {
+    display: none;
+}
+
+@media screen and (max-width: 935px) {
+    .menuIcon {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menuLine {
+        background-color: var(--color-light-black);
+        height: 2px;
+        width: 38px;
+        border-radius: 8px;
+        transition: transform 0.5s ease;
+    }
+
+    .menuLine:not(:first-child) {
+        margin-top: 8px;
+    }
+
+    .open .menuLine:nth-child(1) {
+        transform: translateY(10px);
+    }
+
+    .open .menuLine:nth-child(3) {
+        transform: translateY(-10px);
+    }
+
+    .nav {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .menuLine {
+        width: 27px;
+    }
+}
