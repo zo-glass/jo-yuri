@@ -1,7 +1,12 @@
 import styles from "./page.module.css"
 
+import ComingSoon from "@/components/pages/ComingSoon/ComingSoon"
+
 export default function Home() {
 	return (
-		<h1>Hello World!</h1>
+		<>
+			<ComingSoon />
+		</>
+
 	)
 }
