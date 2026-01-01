@@ -39,5 +39,5 @@
 }
 
 .navItem:hover {
-    background-color: rgb(255, 247, 237);
+    background-color: var(--color-light-orange);
 }

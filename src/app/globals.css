@@ -1,6 +1,12 @@
+:root {
+	--color-dark-white: rgb(250, 250, 250);
+	--color-light-black: rgb(38, 38, 38);
+	--color-light-orange: rgb(255, 247, 237);
+}
+
 * {
 	font: inherit;
-	color: rgb(38, 38, 38);
+	color: var(--color-light-black);
 }
 
 a {
