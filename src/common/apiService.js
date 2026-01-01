@@ -2,6 +2,8 @@ const API_URL = process.env.API_URL
 const API_KEY = process.env.API_KEY
 
 export async function getData(path, queryParams = {}) {
+	if (!API_URL) { throw new Error('API_URL undefined')}
+	
 	const url = new URL(`${API_URL}/${path}`)
 
 	Object.entries(queryParams).forEach(([key, value]) => {
