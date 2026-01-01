@@ -20,8 +20,6 @@ export default async function Gallery({ searchParams }) {
         notFound()
     }
 
-    console.log(items)
-
     return (
         <>
             <h1>Gallery</h1>
