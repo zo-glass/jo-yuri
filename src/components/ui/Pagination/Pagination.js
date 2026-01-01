@@ -16,14 +16,14 @@ export default function Pagination({ totalPages }) {
     return (
         <>
             <div className={styles.container}>
-                <Link href={`?page=${prevPage}`}>
+                <Link href={`?page=${prevPage}`} className={`${styles.chevron} ${currentPage === 1 ? styles.disabled : ''}`}>
                     <VscChevronLeft />
                 </Link>
                 <div className={styles.pages}>
-                    <span>{currentPage}</span>
-                    <span>of {totalPages}</span>
+                    <span className={styles.currentPage}>{currentPage}</span>
+                    <span className={styles.totalPages}>of {totalPages}</span>
                 </div>
-                <Link href={`?page=${nextPage}`}>
+                <Link href={`?page=${nextPage}`} className={`${styles.chevron} ${currentPage === totalPages ? styles.disabled : ''}`}>
                     <VscChevronRight />
                 </Link>
             </div>
