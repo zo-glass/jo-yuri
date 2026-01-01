@@ -5,12 +5,19 @@ export async function getData(path, queryParams = {}) {
 	const url = new URL(`${API_URL}/${path}`)
 
 	Object.entries(queryParams).forEach(([key, value]) => {
-		url.searchParams.append(key, String(value))
+		if (value != null) {
+			url.searchParams.append(key, String(value))
+		}
 	})
 
 	url.searchParams.append('key', API_KEY)
 
 	const res = await fetch(url)
+
+	if (!res.ok) {
+		console.error(`API request failed: ${res.status} ${res.statusText}`)
+		throw new Error(`API request failed: ${res.status} ${res.statusText}`)
+	}
 
 	return res.json()
 }
