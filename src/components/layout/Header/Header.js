@@ -65,12 +65,32 @@ export default function Header() {
 
     return (
         <>
+            <aside className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
+                <nav>
+                    {pages?.map((i, index) => {
+                        return (
+                            <Link href={i.url} className={styles.mobileMenuItem} key={index} onClick={toggleMenu}>
+                                {i.title}
+                            </Link>
+                        )
+                    })}
+                </nav>
+                <div className={styles.mobileSns}>
+                    {sns?.map((i, index) => {
+                        return (
+                            <a href={i.url} target='_blank' rel='noopener noreferrer' className={styles.mobileSnsItem} key={index} onClick={toggleMenu}>
+                                {i.icon}
+                            </a>
+                        )
+                    })}
+                </div>
+            </aside>
             <header className={styles.header}>
                 <section className={styles.container}>
                     <div className={`${styles.menuIcon} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
-                        <div className={styles.menuLine}></div>
-                        <div className={styles.menuLine}></div>
-                        <div className={styles.menuLine}></div>
+                        <div className={styles.menuLine} />
+                        <div className={styles.menuLine} />
+                        <div className={styles.menuLine} />
                     </div>
                     <div className={styles.logo}>
                         <Link href='/'>

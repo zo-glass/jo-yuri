@@ -46,6 +46,44 @@
     display: none;
 }
 
+.mobileMenu {
+    z-index: 777;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mobileMenu.open {
+    transform: translateX(0);
+}
+
+.mobileMenuItem {
+    display: block;
+    font-size: 1.75rem;
+    color: var(--color-light-black);
+    padding: 7px 48px;
+}
+
+.mobileSns {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+.mobileSnsItem {
+    font-size: 1.25rem;
+    color: var(--color-light-black);
+    margin: 0 8px;
+}
+
 @media screen and (max-width: 935px) {
     .menuIcon {
         display: flex;
