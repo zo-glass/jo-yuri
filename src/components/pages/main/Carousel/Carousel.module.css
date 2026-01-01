@@ -1,0 +1,21 @@
+.swiper {
+	width: 100%;
+}
+
+.image {
+	width: 100%;
+	aspect-ratio: 3 / 2;
+	border-radius: 6px;
+	object-fit: cover;
+}
+
+@media screen and (max-width: 935px) {
+	.swiper {
+		width: 100vw;
+		margin-left: calc(50% - 50vw) !important;
+	}
+
+	.image {
+		border-radius: 0px;
+	}
+}
