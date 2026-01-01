@@ -5,8 +5,9 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import 'swiper/css'
-import { Autoplay, Navigation } from 'swiper/modules'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 
 export default function Carousel({ data }) {
@@ -16,7 +17,7 @@ export default function Carousel({ data }) {
                 slidesPerView={1}
                 spaceBetween={0}
                 loop={true} 
-                modules={[ Autoplay, Navigation ]}
+                modules={[ Autoplay, Navigation, Pagination ]}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,
@@ -25,6 +26,7 @@ export default function Carousel({ data }) {
                     prevEl: `.${styles.prev}`,
                     nextEl: `.${styles.next}`,
                 }}
+                pagination={true}
                 className={styles.swiper}
             >
                 {data?.map((i, index) => {
