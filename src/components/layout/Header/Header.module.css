@@ -1,0 +1,122 @@
+.header {
+    z-index: 888;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.container {
+    height: inherit;
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    /* font-size: 29px; */
+    font-size: 1.8125rem;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.navItem {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.navItem:hover {
+    background-color: var(--color-light-orange);
+}
+
+.menuIcon {
+    display: none;
+}
+
+.mobileMenu {
+    z-index: 777;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mobileMenu.open {
+    transform: translateX(0);
+}
+
+.mobileMenuItem {
+    display: block;
+    font-size: 1.75rem;
+    color: var(--color-light-black);
+    padding: 7px 48px;
+}
+
+.mobileSns {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+.mobileSnsItem {
+    font-size: 1.25rem;
+    color: var(--color-light-black);
+    margin: 0 8px;
+}
+
+@media screen and (max-width: 935px) {
+    .menuIcon {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menuLine {
+        background-color: var(--color-light-black);
+        height: 2px;
+        width: 38px;
+        border-radius: 8px;
+        transition: transform 0.5s ease;
+    }
+
+    .menuLine:not(:first-child) {
+        margin-top: 8px;
+    }
+
+    .open .menuLine:nth-child(1) {
+        transform: translateY(10px);
+    }
+
+    .open .menuLine:nth-child(3) {
+        transform: translateY(-10px);
+    }
+
+    .nav {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .menuLine {
+        width: 27px;
+    }
+}
