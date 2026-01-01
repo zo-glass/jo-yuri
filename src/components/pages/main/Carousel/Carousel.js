@@ -32,7 +32,13 @@ export default function Carousel({ items }) {
                     return (
                         <SwiperSlide key={index}>
                             <a href={i.href} target='_blank' rel='noopener noreferrer'>
-                                <img src={i.src} alt={i.alt} className={styles.image} />
+                                <div className={styles.container}>
+                                    <img src={i.src} alt={i.alt} className={styles.image} />
+                                    <div className={`${styles.textContainer} ${i.isDarkText ? styles.darkText : styles.lightText}`}>
+                                        <h1 className={styles.title}>{i.title}</h1>
+                                        <h2 className={styles.subTitle}>{i.subTitle}</h2>
+                                    </div>
+                                </div>
                             </a>
                         </SwiperSlide>
                     )
